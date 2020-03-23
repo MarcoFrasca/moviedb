@@ -1,13 +1,114 @@
-body {
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  font-family: "Montserrat", sans-serif;
+  background-color: #223343;
+  min-height: 100vh;
+}
+
+header {
+  padding: 50px 15px 0;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 500;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 15px;
+}
+
+.searchbox {
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  background-color: #eee;
+  border-radius: 8px;
+  color: #53565a;
+  font-size: 20px;
+  font-weight: 300;
+
+  transition: 0.4s ease-out;
+}
+
+.searchbox:focus {
+  box-shadow: 0 0 8px 3px #4484c4;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.spinner-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-cover {
+  background-color: #fff;
+  width: 100%;
+  height: 400px;
+}
+
+.popup .content {
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 25px;
+  color: #fff;
+}
+
+.popup .content h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.popup .content h2 span {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.popup .content .rating {
+  margin-bottom: 30px;
+}
+
+.popup .content .plot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px 30px;
+}
+
+.popup .content .plot {
+  flex: 1 1 50%;
+  max-width: 300px;
+  padding: 0 15px;
+}
+
+.popup .content .plot p {
+  flex: 1 1 50%;
+  padding: 15px;
 }
