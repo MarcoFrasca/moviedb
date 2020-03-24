@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal } from "antd";
+import { Modal, Button } from "antd";
 
 const Popup = ({ selected, closePopup, showModal }) => {
   const { Title, Year, imdbRating, Poster, Plot } = selected;
@@ -9,6 +9,13 @@ const Popup = ({ selected, closePopup, showModal }) => {
       visible={showModal}
       onOk={closePopup}
       onCancel={closePopup}
+      centered
+      destroyOnClose
+      footer={[
+        <Button key="back" type="primary" onClick={closePopup}>
+          Close
+        </Button>
+      ]}
     >
       <div className="content">
         <h2>

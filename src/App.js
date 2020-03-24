@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "antd/dist/antd.css";
 import "./index.css";
-import { Search, Results, Popup } from "./components";
+import { SearchBar, Results, Popup } from "./components";
 import { apiUrl } from "./utils";
 
 class App extends Component {
@@ -23,18 +23,16 @@ class App extends Component {
     this.setState({ s });
   };
 
-  search = async e => {
+  search = async () => {
     const { s } = this.state;
-    if (e.key === "Enter") {
-      this.setState({ loading: true });
-      try {
-        let { data } = await axios(`${apiUrl}&s=${s}`);
-        let results = data.Search;
-        this.setState({ loading: false, results });
-      } catch (err) {
-        this.setState({ loading: false });
-        console.log(err);
-      }
+    this.setState({ loading: true });
+    try {
+      let { data } = await axios(`${apiUrl}&s=${s}`);
+      let results = data.Search;
+      this.setState({ loading: false, results });
+    } catch (err) {
+      this.setState({ loading: false });
+      console.log(err);
     }
   };
 
@@ -65,7 +63,7 @@ class App extends Component {
           <h1>Movie Database</h1>
         </header>
         <main>
-          <Search handleInput={this.handleInput} search={this.search} />
+          <SearchBar handleInput={this.handleInput} search={this.search} />
           <Results
             results={results}
             loading={loading}
